@@ -1,13 +1,14 @@
 package Dfw::View::HTML;
+use Moose;
 
-use strict;
-use warnings;
+extends 'Catalyst::View::Xslate';
 
-use base 'Catalyst::View::Xslate';
+has '+syntax' => ( default => 'TTerse' );
 
-__PACKAGE__->config(
-    template_extension => '.tx',
+has '+module' => (
+    default => sub { [ 'Text::Xslate::Bridge::TT2' ] }
 );
+
 
 1;
 
@@ -20,4 +21,3 @@ Dfw::View::HTML - Xslate View for Dfw
 Xslate View for Dfw.
 
 =cut
-
